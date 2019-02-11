@@ -1,0 +1,31 @@
+安装
+
+创建并进入项目目录my-app/
+
+npm init -y # npm初始化，生成package.json文件
+npm i webpack webpack-cli -D # 安装webpack和webpack-cli
+配置
+
+创建my-app/webpack.config.js
+
+const path = require('path');
+
+module.exports = {
+  entry: './a.js', // 入口
+  output: { // 出口
+    filename: 'pack.js', // 文件名
+    path: path.resolve(__dirname, 'dist') // 存放目录
+  }
+};
+此时目录结构：
+
+.
+├── a.js
+├── dist
+├── node_modules
+├── package-lock.json
+├── package.json
+└── webpack.config.js
+运行
+
+npx webpack -w # 当文件发生变化时开始打包
